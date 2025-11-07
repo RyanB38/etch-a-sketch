@@ -4,7 +4,7 @@ const sketchHeight = 400; // in px
 const sketchWidth = 400; // in px
 let boxPerRow = 16;
 let boxWidth = sketchWidth / boxPerRow;
-const penColor = "black"
+let penColor = "black"
 
 box.style.flexBasis = `${boxWidth}px`;
 box.style.flexGrow = "0";
@@ -64,6 +64,12 @@ function resizeSketch(){
 const resizeButton = document.querySelector(".buttons > .resize");
 resizeButton.addEventListener("click", () => {
     resizeSketch();
+})
+const penColorButtons = document.querySelectorAll(".pen-colors > div");
+penColorButtons.forEach((div) => {
+    div.addEventListener("click", () => {
+        penColor = getComputedStyle(div).backgroundColor;
+    })
 })
 
 createNewSketchPad();
