@@ -5,7 +5,7 @@ const sketchHeight = 400; // in px
 let boxPerRow = 16;
 let boxWidth = sketchWidth / boxPerRow;
 
-box.style.flexBasis = `${400 / 16}px`;
+box.style.flexBasis = `${boxWidth}px`;
 box.style.flexGrow = "0";
 box.style.flexShrink = "0"
 box.style.border = "1px"
@@ -18,9 +18,32 @@ function createSingleBox(){
     const newBox = box.cloneNode(true);
     container.appendChild(newBox);
 }
+
 function createNewSketchPad(){
     for(let i = 0; i < boxPerRow ** 2; i++){
         createSingleBox();
     }
 }
+
+function addDrawable(){
+    const boxes = container.querySelectorAll("div");
+    boxes.forEach((box) => {
+        box.addEventListener("mouseover", () => {
+            box.style.backgroundColor = 'black';
+        })
+    })
+}
+
+function resetSketch(){
+    const boxes = container.querySelectorAll("div");
+    boxes.forEach((box) => {
+        box.style.backgroundColor = "white";
+    })
+}
+const resetButton = document.querySelector(".reset-button > button");
+resetButton.addEventListener("click", () => {
+    resetSketch();
+})
 createNewSketchPad();
+addDrawable();
+
