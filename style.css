@@ -7,3 +7,22 @@
     border-style: solid;
     border: 2px;
 }
+.pen-colors {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    height: 100px;
+}
+.pen-colors > div{
+    flex: 0, 0, 100px;
+    height: 100px;
+}
+.red{
+    background-color: red;
+}
+.green{
+    background-color: green;
+}
+.blue{
+    background-color: blue;
+}
